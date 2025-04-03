@@ -1,11 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>致何敏燕</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/1600x900/?romantic');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h1 {
+            color: #ff6f61;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin: 10px 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .heart {
+            font-size: 60px;
+            color: #ff6f61;
+            margin: 20px 0;
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #ccc;
+        }
+        form {
+            margin-top: 30px;
+        }
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            resize: none;
+            font-size: 1em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e55b50;
+        }
+        #commentsSection {
+            margin-top: 40px;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        #commentsList li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
 </head>
 <body>
-    <div id="root"></div>
+    <h1>致何敏燕</h1>
+    <div class="heart">❤️</div>
+    <p>亲爱的何敏燕，</p>
+    <p>我想对你说，我真的很喜欢你。你的笑容让我感到温暖，你的存在让我感到幸福。</p>
+    <p>希望我们能一起创造更多美好的回忆。</p>
+    <div class="heart">❤️</div>
+    <p>永远喜欢你的张宇辰</p>
+    <div class="footer">此网页仅为表达心意而作</div>
+
+    <!-- 评论表单 -->
+    <h2>留下你的评论</h2>
+    <form id="commentForm">
+        <textarea id="commentInput" rows="4" placeholder="写下你的评论..."></textarea>
+        <button type="button" onclick="addComment()">提交评论</button>
+    </form>
+    <div id="commentsSection">
+        <h3>评论区</h3>
+        <ul id="commentsList"></ul>
+    </div>
+
+    <script>
+        function addComment() {
+            const commentInput = document.getElementById('commentInput');
+            const commentText = commentInput.value.trim();
+            if (commentText) {
+                const commentsList = document.getElementById('commentsList');
+                const newComment = document.createElement('li');
+                newComment.textContent = commentText;
+                commentsList.appendChild(newComment);
+                commentInput.value = '';
+            } else {
+                alert('评论不能为空！');
+            }
+        }
+    </script>
 </body>
 </html>
